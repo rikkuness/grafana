@@ -1,0 +1,33 @@
+.gw2money-copper,
+.gw2money-silver,
+.gw2money-gold {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    background: transparent no-repeat;
+    text-indent: -1999px;
+    overflow: hidden;
+}
+
+.gw2money-copper {
+    background-image: url('/public/img/copper.png');
+}
+
+.gw2money-silver {
+    background-image: url('/public/img/silver.png');
+}
+
+.gw2money-gold {
+    background-image: url('/public/img/gold.png');
+}
+
+.gw2money-gold-text {
+  color: #f7c34c;
+}
+.gw2money-silver-text {
+  color: #cbcbcb;
+}
+.gw2money-copper-text {
+  color: #d47f46;
+}

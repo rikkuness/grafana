@@ -359,6 +359,54 @@ function($, _) {
     };
   };
 
+  kbn.formatBuilders.guildWars = function() {
+    return function(copper) {
+      copper =  Math.floor(copper);
+
+      var goldImg   = '<i class="gw2money-gold"></i>';
+      var silverImg = '<i class="gw2money-silver"></i>';
+      var copperImg = '<i class="gw2money-copper"></i>';
+
+      var goldString = '<span class="gw2money-gold-text">';
+      var silverString = '<span class="gw2money-silver-text">';
+      var copperString = '<span class="gw2money-copper-text">';
+
+      var string = "";
+      var negative = copper < 0;
+      if (negative) {
+        copper *= -1;
+      }
+
+      var gold = Math.floor(copper / 10000);
+      if (gold) {
+        copper = copper % (gold * 10000);
+        gold = negative ? gold*-1 : gold;
+
+        string += goldString + gold + "</span> " + goldImg + " ";
+      }
+
+      var silver = Math.floor(copper / 100);
+      if (silver) {
+        copper = copper % (silver * 100);
+        silver = negative ? silver*-1 : silver;
+
+        string += silverString + silver + "</span> " + silverImg + " ";
+      }
+
+      if (copper) {
+        // round copper by 2 digits
+        copper = Math.round(copper * 100) / 100;
+        copper = negative ? copper*-1 : copper;
+
+        string += copperString + copper + "</span> " + copperImg + " ";
+      }
+
+      string = string.replace(/( )+$/, '');
+
+      return (!string ? "0 " + copperImg : string);
+    };
+  };
+
   ///// VALUE FORMATS /////
 
   // Dimensionless Units
@@ -399,6 +447,7 @@ function($, _) {
   kbn.valueFormats.currencyGBP = kbn.formatBuilders.currency('£');
   kbn.valueFormats.currencyEUR = kbn.formatBuilders.currency('€');
   kbn.valueFormats.currencyJPY = kbn.formatBuilders.currency('¥');
+  kbn.valueFormats.currencyGW2 = kbn.formatBuilders.guildWars();
 
   // Data (Binary)
   kbn.valueFormats.bits   = kbn.formatBuilders.binarySIPrefix('b');
@@ -701,6 +750,7 @@ function($, _) {
           {text: 'Pounds (£)',  value: 'currencyGBP'},
           {text: 'Euro (€)',    value: 'currencyEUR'},
           {text: 'Yen (¥)',     value: 'currencyJPY'},
+          {text: 'Guild Wars',  value: 'currencyGW2'}
         ]
       },
       {
