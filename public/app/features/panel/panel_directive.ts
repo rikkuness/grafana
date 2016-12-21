@@ -144,7 +144,7 @@ module.directive('grafanaPanel', function($rootScope) {
 
       function updatePanelCornerInfo() {
         var cornerMode = ctrl.getInfoMode();
-        cornerInfoElem[0].className = 'panel-info-corner + panel-info-corner--' + cornerMode;
+        cornerInfoElem[0].className = 'panel-info-corner panel-info-corner--' + cornerMode;
 
         if (cornerMode) {
           if (infoDrop) {
@@ -190,7 +190,7 @@ module.directive('grafanaPanel', function($rootScope) {
 module.directive('panelResizer', function($rootScope) {
   return {
     restrict: 'E',
-    template: '<span class="resize-panel-handle fa fa-signal"></span>',
+    template: '<span class="resize-panel-handle icon-gf icon-gf-grabber"></span>',
     link: function(scope, elem) {
       var resizing = false;
       var lastPanel;

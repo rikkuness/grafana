@@ -447,6 +447,7 @@ function($, _) {
   kbn.valueFormats.currencyGBP = kbn.formatBuilders.currency('£');
   kbn.valueFormats.currencyEUR = kbn.formatBuilders.currency('€');
   kbn.valueFormats.currencyJPY = kbn.formatBuilders.currency('¥');
+  kbn.valueFormats.currencyRUB = kbn.formatBuilders.currency('₽');
   kbn.valueFormats.currencyGW2 = kbn.formatBuilders.guildWars();
 
   // Data (Binary)
@@ -750,6 +751,7 @@ function($, _) {
           {text: 'Pounds (£)',  value: 'currencyGBP'},
           {text: 'Euro (€)',    value: 'currencyEUR'},
           {text: 'Yen (¥)',     value: 'currencyJPY'},
+          {text: 'Rubles (₽)',  value: 'currencyRUB'},
           {text: 'Guild Wars',  value: 'currencyGW2'}
         ]
       },
